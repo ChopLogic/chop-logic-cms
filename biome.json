@@ -1,0 +1,30 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.3.13/schema.json",
+	"files": {
+		"includes": [
+			"**",
+			"!**/public",
+			"!**/.tmp",
+			"!**/.strapi",
+			"!**/coverage",
+			"!**/node_modules",
+			"!**/docs",
+			"!**/.stryker-tmp",
+			"!**/reports",
+			"!**/types/generated"
+		]
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		},
+		"domains": {
+			"project": "recommended",
+			"test": "recommended"
+		}
+	},
+	"formatter": {
+		"enabled": true
+	}
+}
