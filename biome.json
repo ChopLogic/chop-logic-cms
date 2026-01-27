@@ -4,6 +4,7 @@
 		"includes": [
 			"**",
 			"!**/public",
+			"!**/config",
 			"!**/.tmp",
 			"!**/.strapi",
 			"!**/coverage",

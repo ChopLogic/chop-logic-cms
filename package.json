@@ -17,7 +17,10 @@
 		"lint": "biome check",
 		"lint:errors": "biome check --diagnostic-level error --max-diagnostics 100",
 		"lint:warnings": "biome check --diagnostic-level warn --max-diagnostics 100",
-		"lint:fix": "biome check --write"
+		"lint:fix": "biome check --write",
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"test:coverage": "jest --coverage"
 	},
 	"dependencies": {
 		"@strapi/plugin-cloud": "5.33.4",
@@ -31,9 +34,12 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.3.13",
+		"@types/jest": "^30.0.0",
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
+		"jest": "^30.2.0",
+		"ts-jest": "^29.4.6",
 		"typescript": "^5"
 	},
 	"engines": {
