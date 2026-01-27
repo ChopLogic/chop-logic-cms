@@ -3,15 +3,11 @@
 	"files": {
 		"includes": [
 			"**",
-			"!**/public",
-			"!**/config",
+			"!**/dist",
 			"!**/.tmp",
 			"!**/.strapi",
 			"!**/coverage",
 			"!**/node_modules",
-			"!**/docs",
-			"!**/.stryker-tmp",
-			"!**/reports",
 			"!**/types/generated"
 		]
 	},

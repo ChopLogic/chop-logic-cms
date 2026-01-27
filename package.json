@@ -2,13 +2,12 @@
 	"name": "chop-logic-cms",
 	"version": "0.1.0",
 	"private": true,
-	"description": "A Strapi application",
+	"description": "Content management system for Chop Logic Portal",
 	"scripts": {
 		"build": "strapi build",
 		"console": "strapi console",
 		"deploy": "strapi deploy",
 		"dev": "strapi develop",
-		"develop": "strapi develop",
 		"start": "strapi start",
 		"strapi": "strapi",
 		"upgrade": "npx @strapi/upgrade latest",
@@ -18,9 +17,11 @@
 		"lint:errors": "biome check --diagnostic-level error --max-diagnostics 100",
 		"lint:warnings": "biome check --diagnostic-level warn --max-diagnostics 100",
 		"lint:fix": "biome check --write",
-		"test": "jest",
-		"test:watch": "jest --watch",
-		"test:coverage": "jest --coverage"
+		"test": "jest --watch",
+		"test:ci": "jest --passWithNoTests --runInBand",
+		"test:coverage": "jest --coverage",
+		"typecheck": "tsc --pretty --noEmit",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@strapi/plugin-cloud": "5.33.4",
@@ -34,11 +35,15 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.3.13",
+		"@commitlint/cli": "^20.3.1",
+		"@commitlint/config-conventional": "^20.3.1",
 		"@types/jest": "^30.0.0",
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
+		"husky": "^9.1.7",
 		"jest": "^30.2.0",
+		"lint-staged": "^16.2.7",
 		"ts-jest": "^29.4.6",
 		"typescript": "^5"
 	},
@@ -49,5 +54,29 @@
 	"strapi": {
 		"uuid": "aefa6929-966f-49f7-af70-d870f100b8ee",
 		"installId": "edefd3354f64a32a74c6759ed7d737e2769f350491c31d460051fb9417f6beeb"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ChopLogic/chop-logic-cms.git"
+	},
+	"author": "Dmitrii Suroviagin",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ChopLogic/chop-logic-cms/issues"
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
+	"lint-staged": {
+		"*.ts": [
+			"bash -c 'npm run typecheck'"
+		],
+		"*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+			"biome format --write",
+			"biome check --write",
+			"biome check --diagnostic-level error"
+		]
 	}
 }
