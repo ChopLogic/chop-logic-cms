@@ -17,19 +17,33 @@
 			"maxLength": 255,
 			"required": true
 		},
-		"published": {
-			"type": "datetime",
+		"slug": {
+			"type": "uid",
+			"targetField": "title",
 			"required": true
 		},
-		"summary": {
-			"type": "blocks",
-			"required": true
+		"tags": {
+			"type": "relation",
+			"relation": "oneToMany",
+			"target": "api::tag.tag"
 		},
 		"preview": {
 			"type": "media",
 			"multiple": false,
 			"required": true,
 			"allowedTypes": ["images", "files"]
+		},
+		"summary": {
+			"type": "blocks",
+			"required": true
+		},
+		"body": {
+			"type": "blocks",
+			"required": true
+		},
+		"publicationDate": {
+			"type": "date",
+			"required": true
 		}
 	}
 }
