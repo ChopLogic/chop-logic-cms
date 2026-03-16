@@ -2,7 +2,7 @@
 
 **Content Management System for Chop Logic Portal**
 
-A modern, headless CMS built with [Strapi](https://strapi.io/) v5.33.4 and TypeScript, designed to manage content for the Chop Logic Portal. This project provides a flexible and scalable backend solution for content management with built-in API functionality, user permissions management, and cloud deployment capabilities.
+A modern, headless CMS built with [Strapi](https://strapi.io/) and TypeScript, designed to manage content for the Chop Logic Portal. This project provides a flexible and scalable backend solution for content management with built-in API functionality, user permissions management, and cloud deployment capabilities.
 
 ## 📋 Table of Contents
 
@@ -20,7 +20,7 @@ A modern, headless CMS built with [Strapi](https://strapi.io/) v5.33.4 and TypeS
 
 ## ✨ Features
 
-- **Headless CMS**: Strapi v5.33.4 provides a flexible, API-first content management system
+- **Headless CMS**: Strapi provides a flexible, API-first content management system
 - **User Permissions**: Built-in user authentication and role-based access control via the Users Permissions plugin
 - **Cloud Support**: Integrated Strapi Cloud plugin for easy deployment
 - **TypeScript**: Full TypeScript support for type-safe development

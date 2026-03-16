@@ -1,9 +1,11 @@
-import path from "path";
+import path from "node:path";
 
-export default ({ env }) => {
+import type { StrapiEnv } from "../src/utils/strapi-env";
+
+export default ({ env }: { env: StrapiEnv }) => {
 	const client = env("DATABASE_CLIENT", "sqlite");
 
-	const connections = {
+	const connections: Record<string, object> = {
 		mysql: {
 			connection: {
 				host: env("DATABASE_HOST", "localhost"),

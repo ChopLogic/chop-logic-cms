@@ -1,4 +1,6 @@
-export default ({ env }) => ({
+import type { StrapiEnv } from "../src/utils/strapi-env";
+
+export default ({ env }: { env: StrapiEnv }) => ({
 	auth: {
 		secret: env("ADMIN_JWT_SECRET"),
 	},
