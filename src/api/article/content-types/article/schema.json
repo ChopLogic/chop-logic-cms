@@ -44,6 +44,11 @@
 		"publicationDate": {
 			"type": "date",
 			"required": true
+		},
+		"metaData": {
+			"type": "component",
+			"component": "shared.seo",
+			"repeatable": false
 		}
 	}
 }

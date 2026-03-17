@@ -13,6 +13,7 @@
 	"attributes": {
 		"name": {
 			"type": "string",
+			"maxLength": 70,
 			"required": true,
 			"unique": true
 		},
@@ -22,7 +23,8 @@
 			"required": true
 		},
 		"description": {
-			"type": "string"
+			"type": "string",
+			"maxLength": 200
 		}
 	}
 }
