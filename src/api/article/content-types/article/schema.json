@@ -31,6 +31,10 @@
 			"targetField": "title",
 			"required": true
 		},
+		"publicationDate": {
+			"type": "date",
+			"required": true
+		},
 		"preview": {
 			"type": "component",
 			"component": "sections.picture",
@@ -48,10 +52,6 @@
 				"sections.embedded-video",
 				"sections.call-to-action"
 			],
-			"required": true
-		},
-		"publicationDate": {
-			"type": "date",
 			"required": true
 		},
 		"metaData": {

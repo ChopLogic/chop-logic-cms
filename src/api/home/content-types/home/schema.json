@@ -1,10 +1,10 @@
 {
 	"kind": "singleType",
-	"collectionName": "about_mes",
+	"collectionName": "homes",
 	"info": {
-		"singularName": "about-me",
-		"pluralName": "about-mes",
-		"displayName": "About Me"
+		"singularName": "home",
+		"pluralName": "homes",
+		"displayName": "Home"
 	},
 	"options": {
 		"draftAndPublish": true
@@ -17,31 +17,19 @@
 		},
 		"slug": {
 			"type": "uid",
-			"targetField": "title",
-			"required": true
-		},
-		"heroHeading": {
-			"type": "string",
-			"required": true
-		},
-		"heroSubheading": {
-			"type": "text"
-		},
-		"heroImage": {
-			"type": "component",
-			"component": "sections.picture",
-			"repeatable": false
+			"targetField": "title"
 		},
 		"content": {
 			"type": "dynamiczone",
 			"components": [
+				"sections.picture",
 				"sections.paragraph",
-				"sections.gallery",
 				"sections.internal-video",
-				"sections.call-to-action",
+				"sections.gallery",
 				"sections.embedded-video",
-				"sections.picture"
-			]
+				"sections.call-to-action"
+			],
+			"required": true
 		},
 		"metaData": {
 			"type": "component",
