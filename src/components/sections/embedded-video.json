@@ -1,0 +1,19 @@
+{
+	"collectionName": "components_sections_embedded_videos",
+	"info": {
+		"displayName": "Embedded Video",
+		"icon": "play"
+	},
+	"options": {},
+	"attributes": {
+		"heading": {
+			"type": "string"
+		},
+		"link": {
+			"type": "component",
+			"component": "sections.link",
+			"repeatable": false
+		}
+	},
+	"config": {}
+}

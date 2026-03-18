@@ -430,6 +430,49 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutMeAboutMe extends Struct.SingleTypeSchema {
+  collectionName: 'about_mes';
+  info: {
+    displayName: 'About Me';
+    pluralName: 'about-mes';
+    singularName: 'about-me';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'sections.paragraph',
+        'sections.gallery',
+        'sections.internal-video',
+        'sections.call-to-action',
+        'sections.embedded-video',
+        'sections.picture',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroHeading: Schema.Attribute.String & Schema.Attribute.Required;
+    heroSubheading: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-me.about-me'
+    > &
+      Schema.Attribute.Private;
+    metaData: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
@@ -441,7 +484,18 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    body: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    content: Schema.Attribute.DynamicZone<
+      [
+        'sections.reference-list',
+        'sections.picture',
+        'sections.paragraph',
+        'sections.internal-video',
+        'sections.gallery',
+        'sections.embedded-video',
+        'sections.call-to-action',
+      ]
+    > &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -451,8 +505,9 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       'api::article.article'
     > &
       Schema.Attribute.Private;
-    metaData: Schema.Attribute.Component<'shared.seo', false>;
-    preview: Schema.Attribute.Media<'images' | 'files'> &
+    metaData: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.Required;
+    preview: Schema.Attribute.Component<'sections.picture', false> &
       Schema.Attribute.Required;
     publicationDate: Schema.Attribute.Date & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
@@ -1017,6 +1072,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-me.about-me': ApiAboutMeAboutMe;
       'api::article.article': ApiArticleArticle;
       'api::tag.tag': ApiTagTag;
       'plugin::content-releases.release': PluginContentReleasesRelease;

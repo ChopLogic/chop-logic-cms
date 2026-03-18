@@ -1,0 +1,29 @@
+{
+	"collectionName": "components_sections_call_to_actions",
+	"info": {
+		"displayName": "Call to action",
+		"icon": "arrowRight"
+	},
+	"options": {},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"required": true
+		},
+		"subheading": {
+			"type": "string"
+		},
+		"link": {
+			"type": "component",
+			"component": "sections.link",
+			"repeatable": false,
+			"required": true
+		},
+		"image": {
+			"type": "component",
+			"component": "sections.picture",
+			"repeatable": false
+		}
+	},
+	"config": {}
+}

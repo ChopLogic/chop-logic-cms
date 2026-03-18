@@ -1,0 +1,21 @@
+{
+	"collectionName": "components_sections_internal_videos",
+	"info": {
+		"displayName": "Internal Video",
+		"icon": "television"
+	},
+	"options": {},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"required": false
+		},
+		"file": {
+			"type": "media",
+			"multiple": false,
+			"required": true,
+			"allowedTypes": ["files", "videos"]
+		}
+	},
+	"config": {}
+}

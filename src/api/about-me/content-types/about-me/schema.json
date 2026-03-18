@@ -1,0 +1,48 @@
+{
+	"kind": "singleType",
+	"collectionName": "about_mes",
+	"info": {
+		"singularName": "about-me",
+		"pluralName": "about-mes",
+		"displayName": "About Me"
+	},
+	"options": {
+		"draftAndPublish": true
+	},
+	"pluginOptions": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"required": true
+		},
+		"slug": {
+			"type": "uid",
+			"targetField": "title",
+			"required": true
+		},
+		"heroHeading": {
+			"type": "string",
+			"required": true
+		},
+		"heroSubheading": {
+			"type": "text"
+		},
+		"content": {
+			"type": "dynamiczone",
+			"components": [
+				"sections.paragraph",
+				"sections.gallery",
+				"sections.internal-video",
+				"sections.call-to-action",
+				"sections.embedded-video",
+				"sections.picture"
+			]
+		},
+		"metaData": {
+			"type": "component",
+			"component": "shared.seo",
+			"repeatable": false,
+			"required": true
+		}
+	}
+}
