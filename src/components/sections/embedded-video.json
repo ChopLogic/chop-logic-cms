@@ -9,10 +9,16 @@
 		"heading": {
 			"type": "string"
 		},
+		"platform": {
+			"type": "enumeration",
+			"required": true,
+			"enum": ["YouTube", "Instagram", "Pinterest", "Vimeo", "Twitch"]
+		},
 		"link": {
 			"type": "component",
 			"component": "sections.link",
-			"repeatable": false
+			"repeatable": false,
+			"required": true
 		}
 	},
 	"config": {}

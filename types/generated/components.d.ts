@@ -23,7 +23,12 @@ export interface SectionsEmbeddedVideo extends Struct.ComponentSchema {
   };
   attributes: {
     heading: Schema.Attribute.String;
-    link: Schema.Attribute.Component<'sections.link', false>;
+    link: Schema.Attribute.Component<'sections.link', false> &
+      Schema.Attribute.Required;
+    platform: Schema.Attribute.Enumeration<
+      ['YouTube', 'Instagram', 'Pinterest', 'Vimeo', 'Twitch']
+    > &
+      Schema.Attribute.Required;
   };
 }
 
@@ -62,6 +67,23 @@ export interface SectionsLink extends Struct.ComponentSchema {
     icon: 'link';
   };
   attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files'>;
+    platform: Schema.Attribute.Enumeration<
+      [
+        'LinkedIn',
+        'Facebook',
+        'Telegram',
+        'YouTube',
+        'WhatsApp',
+        'Instagram',
+        'TikTok',
+        'Reddit',
+        'Pinterest',
+        'X/Twitter',
+        'Medium',
+        'Discord',
+      ]
+    >;
     text: Schema.Attribute.String & Schema.Attribute.Required;
     url: Schema.Attribute.String & Schema.Attribute.Required;
   };
