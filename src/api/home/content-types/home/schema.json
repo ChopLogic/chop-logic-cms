@@ -15,9 +15,12 @@
 			"type": "string",
 			"required": true
 		},
-		"slug": {
-			"type": "uid",
-			"targetField": "title"
+		"heading": {
+			"type": "string",
+			"required": true
+		},
+		"subHeading": {
+			"type": "string"
 		},
 		"content": {
 			"type": "dynamiczone",

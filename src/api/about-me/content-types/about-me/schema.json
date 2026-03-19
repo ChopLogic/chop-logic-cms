@@ -20,17 +20,18 @@
 			"targetField": "title",
 			"required": true
 		},
-		"heroHeading": {
+		"heading": {
 			"type": "string",
 			"required": true
 		},
-		"heroSubheading": {
-			"type": "text"
+		"subHeading": {
+			"type": "string"
 		},
 		"heroImage": {
 			"type": "component",
 			"component": "sections.picture",
-			"repeatable": false
+			"repeatable": false,
+			"required": true
 		},
 		"content": {
 			"type": "dynamiczone",
@@ -41,7 +42,8 @@
 				"sections.call-to-action",
 				"sections.embedded-video",
 				"sections.picture"
-			]
+			],
+			"required": true
 		},
 		"metaData": {
 			"type": "component",
