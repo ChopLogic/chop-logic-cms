@@ -485,6 +485,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    authors: Schema.Attribute.Relation<'manyToMany', 'api::author.author'>;
     content: Schema.Attribute.DynamicZone<
       [
         'sections.reference-list',
@@ -521,6 +522,41 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
         maxLength: 255;
         minLength: 1;
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
+  collectionName: 'authors';
+  info: {
+    displayName: 'Author';
+    pluralName: 'authors';
+    singularName: 'author';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
+    avatar: Schema.Attribute.Component<'sections.picture', false>;
+    bio: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::author.author'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.String;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    socialLinks: Schema.Attribute.Component<'sections.link', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1148,6 +1184,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-me.about-me': ApiAboutMeAboutMe;
       'api::article.article': ApiArticleArticle;
+      'api::author.author': ApiAuthorAuthor;
       'api::blog.blog': ApiBlogBlog;
       'api::home.home': ApiHomeHome;
       'api::tag.tag': ApiTagTag;

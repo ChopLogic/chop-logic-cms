@@ -17,11 +17,6 @@
 			"maxLength": 255,
 			"required": true
 		},
-		"tags": {
-			"type": "relation",
-			"relation": "oneToMany",
-			"target": "api::tag.tag"
-		},
 		"summary": {
 			"type": "blocks",
 			"required": true
@@ -34,6 +29,17 @@
 		"publicationDate": {
 			"type": "date",
 			"required": true
+		},
+		"tags": {
+			"type": "relation",
+			"relation": "oneToMany",
+			"target": "api::tag.tag"
+		},
+		"authors": {
+			"type": "relation",
+			"relation": "manyToMany",
+			"target": "api::author.author",
+			"mappedBy": "articles"
 		},
 		"preview": {
 			"type": "component",
