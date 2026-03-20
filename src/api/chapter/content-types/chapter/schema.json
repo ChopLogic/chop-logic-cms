@@ -29,6 +29,12 @@
 			"type": "integer",
 			"required": true
 		},
+		"book": {
+			"type": "relation",
+			"relation": "manyToOne",
+			"target": "api::book.book",
+			"inversedBy": "chapters"
+		},
 		"content": {
 			"type": "dynamiczone",
 			"components": [

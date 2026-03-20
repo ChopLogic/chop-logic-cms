@@ -544,6 +544,7 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
     avatar: Schema.Attribute.Component<'sections.picture', false>;
     bio: Schema.Attribute.Blocks;
+    books: Schema.Attribute.Relation<'manyToMany', 'api::book.book'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -599,6 +600,40 @@ export interface ApiBlogBlog extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiBookBook extends Struct.CollectionTypeSchema {
+  collectionName: 'books';
+  info: {
+    displayName: 'Book';
+    pluralName: 'books';
+    singularName: 'book';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    annotation: Schema.Attribute.Text & Schema.Attribute.Required;
+    authors: Schema.Attribute.Relation<'manyToMany', 'api::author.author'>;
+    chapters: Schema.Attribute.Relation<'oneToMany', 'api::chapter.chapter'>;
+    copyright: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    cover: Schema.Attribute.Component<'sections.picture', false> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ISBN: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::book.book'> &
+      Schema.Attribute.Private;
+    metaData: Schema.Attribute.Component<'shared.seo', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiChapterChapter extends Struct.CollectionTypeSchema {
   collectionName: 'chapters';
   info: {
@@ -610,6 +645,7 @@ export interface ApiChapterChapter extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    book: Schema.Attribute.Relation<'manyToOne', 'api::book.book'>;
     content: Schema.Attribute.DynamicZone<
       [
         'sections.picture',
@@ -1299,6 +1335,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::blog.blog': ApiBlogBlog;
+      'api::book.book': ApiBookBook;
       'api::chapter.chapter': ApiChapterChapter;
       'api::config.config': ApiConfigConfig;
       'api::home.home': ApiHomeHome;
