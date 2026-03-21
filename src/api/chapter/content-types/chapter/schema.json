@@ -23,7 +23,7 @@
 		"level": {
 			"type": "enumeration",
 			"required": true,
-			"enum": ["chapter", "section", "subsection"]
+			"enum": ["chapter", "section", "subsection", "frontmatter", "backmatter"]
 		},
 		"order": {
 			"type": "integer",
@@ -46,6 +46,11 @@
 				"sections.call-to-action"
 			],
 			"required": true
+		},
+		"references": {
+			"type": "component",
+			"component": "sections.reference-list",
+			"repeatable": false
 		},
 		"metaData": {
 			"type": "component",
