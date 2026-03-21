@@ -468,6 +468,7 @@ export interface ApiAboutMeAboutMe extends Struct.SingleTypeSchema {
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    socialLinks: Schema.Attribute.Component<'sections.link', true>;
     subHeading: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -511,7 +512,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     metaData: Schema.Attribute.Component<'shared.seo', false> &
       Schema.Attribute.Required;
-    preview: Schema.Attribute.Component<'sections.picture', false> &
+    preview: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     publicationDate: Schema.Attribute.Date & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;

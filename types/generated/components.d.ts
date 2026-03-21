@@ -82,8 +82,26 @@ export interface SectionsLink extends Struct.ComponentSchema {
         'X/Twitter',
         'Medium',
         'Discord',
+        'GitHub',
       ]
     >;
+    referrerpolicy: Schema.Attribute.Enumeration<
+      [
+        'no-referrer',
+        'no-referrer-when-downgrade',
+        'origin',
+        'origin-when-cross-origin',
+        'same-origin',
+        'strict-origin',
+        'strict-origin-when-cross-origin',
+        'unsafe-url',
+      ]
+    > &
+      Schema.Attribute.DefaultTo<'strict-origin-when-cross-origin'>;
+    target: Schema.Attribute.Enumeration<
+      ['_blank', '_self', '_parent', '_top']
+    > &
+      Schema.Attribute.DefaultTo<'_blank'>;
     text: Schema.Attribute.String & Schema.Attribute.Required;
     url: Schema.Attribute.String & Schema.Attribute.Required;
   };

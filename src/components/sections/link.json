@@ -12,8 +12,7 @@
 		},
 		"url": {
 			"type": "string",
-			"required": true,
-			"regex": "/(?:http[s]?:\\/\\/.)?(?:www\\.)?[-a-zA-Z0-9@%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b(?:[-a-zA-Z0-9@:%_\\+.~#?&\\/\\/=]*)/gm"
+			"required": true
 		},
 		"platform": {
 			"type": "enumeration",
@@ -29,13 +28,33 @@
 				"Pinterest",
 				"X/Twitter",
 				"Medium",
-				"Discord"
+				"Discord",
+				"GitHub"
 			]
 		},
 		"icon": {
 			"type": "media",
 			"multiple": false,
 			"allowedTypes": ["images", "files"]
+		},
+		"target": {
+			"type": "enumeration",
+			"default": "_blank",
+			"enum": ["_blank", "_self", "_parent", "_top"]
+		},
+		"referrerpolicy": {
+			"type": "enumeration",
+			"default": "strict-origin-when-cross-origin",
+			"enum": [
+				"no-referrer",
+				"no-referrer-when-downgrade",
+				"origin",
+				"origin-when-cross-origin",
+				"same-origin",
+				"strict-origin",
+				"strict-origin-when-cross-origin",
+				"unsafe-url"
+			]
 		}
 	},
 	"config": {}

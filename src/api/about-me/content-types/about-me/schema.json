@@ -45,6 +45,11 @@
 			],
 			"required": true
 		},
+		"socialLinks": {
+			"type": "component",
+			"component": "sections.link",
+			"repeatable": true
+		},
 		"metaData": {
 			"type": "component",
 			"component": "shared.seo",

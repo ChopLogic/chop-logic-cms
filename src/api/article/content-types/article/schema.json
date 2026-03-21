@@ -30,6 +30,12 @@
 			"type": "date",
 			"required": true
 		},
+		"preview": {
+			"type": "media",
+			"multiple": false,
+			"required": true,
+			"allowedTypes": ["images", "files"]
+		},
 		"tags": {
 			"type": "relation",
 			"relation": "oneToMany",
@@ -40,12 +46,6 @@
 			"relation": "manyToMany",
 			"target": "api::author.author",
 			"mappedBy": "articles"
-		},
-		"preview": {
-			"type": "component",
-			"component": "sections.picture",
-			"repeatable": false,
-			"required": true
 		},
 		"content": {
 			"type": "dynamiczone",
