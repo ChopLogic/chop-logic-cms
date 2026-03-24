@@ -7,7 +7,7 @@ export interface SectionsCallToAction extends Struct.ComponentSchema {
     icon: 'arrowRight';
   };
   attributes: {
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    heading: Schema.Attribute.String;
     image: Schema.Attribute.Component<'sections.picture', false>;
     link: Schema.Attribute.Component<'sections.link', false> &
       Schema.Attribute.Required;
@@ -40,7 +40,8 @@ export interface SectionsGallery extends Struct.ComponentSchema {
   };
   attributes: {
     heading: Schema.Attribute.String;
-    images: Schema.Attribute.Component<'sections.picture', true>;
+    images: Schema.Attribute.Component<'sections.picture', true> &
+      Schema.Attribute.Required;
     layout: Schema.Attribute.Enumeration<['grid', 'masonry', 'carousel']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'carousel'>;

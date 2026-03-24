@@ -8,7 +8,7 @@
 	"attributes": {
 		"heading": {
 			"type": "string",
-			"required": true
+			"required": false
 		},
 		"subheading": {
 			"type": "string"
