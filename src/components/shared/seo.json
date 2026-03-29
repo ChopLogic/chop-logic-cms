@@ -22,6 +22,9 @@
 		"canonicalURL": {
 			"type": "string"
 		},
+		"authorName": {
+			"type": "string"
+		},
 		"robots": {
 			"type": "enumeration",
 			"enum": ["index", "follow", "noindex", "nofollow"]

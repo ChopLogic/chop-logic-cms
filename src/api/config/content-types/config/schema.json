@@ -4,7 +4,7 @@
 	"info": {
 		"singularName": "config",
 		"pluralName": "configs",
-		"displayName": "Config"
+		"displayName": "SiteConfig"
 	},
 	"options": {
 		"draftAndPublish": true
@@ -16,25 +16,15 @@
 			"required": true,
 			"unique": false
 		},
-		"siteDescription": {
-			"type": "string",
+		"footerText": {
+			"type": "text",
 			"required": true
 		},
-		"logo": {
-			"type": "media",
-			"multiple": false,
-			"allowedTypes": ["images", "files"]
-		},
-		"footerText": {
-			"type": "text"
-		},
-		"version": {
-			"type": "string"
-		},
-		"socialLinks": {
+		"links": {
 			"type": "component",
 			"component": "sections.link",
-			"repeatable": true
+			"repeatable": true,
+			"required": true
 		}
 	}
 }

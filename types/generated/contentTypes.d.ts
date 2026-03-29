@@ -686,7 +686,7 @@ export interface ApiChapterChapter extends Struct.CollectionTypeSchema {
 export interface ApiConfigConfig extends Struct.SingleTypeSchema {
   collectionName: 'configs';
   info: {
-    displayName: 'Config';
+    displayName: 'SiteConfig';
     pluralName: 'configs';
     singularName: 'config';
   };
@@ -697,22 +697,20 @@ export interface ApiConfigConfig extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    footerText: Schema.Attribute.Text;
+    footerText: Schema.Attribute.Text & Schema.Attribute.Required;
+    links: Schema.Attribute.Component<'sections.link', true> &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::config.config'
     > &
       Schema.Attribute.Private;
-    logo: Schema.Attribute.Media<'images' | 'files'>;
     publishedAt: Schema.Attribute.DateTime;
-    siteDescription: Schema.Attribute.String & Schema.Attribute.Required;
     siteTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    socialLinks: Schema.Attribute.Component<'sections.link', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    version: Schema.Attribute.String;
   };
 }
 

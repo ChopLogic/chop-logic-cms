@@ -104,6 +104,9 @@ export interface SectionsLink extends Struct.ComponentSchema {
     > &
       Schema.Attribute.DefaultTo<'_blank'>;
     text: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['internal', 'external']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'external'>;
     url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -183,6 +186,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
     icon: 'search';
   };
   attributes: {
+    authorName: Schema.Attribute.String;
     canonicalURL: Schema.Attribute.String;
     keywords: Schema.Attribute.String;
     metaDescription: Schema.Attribute.Text &
