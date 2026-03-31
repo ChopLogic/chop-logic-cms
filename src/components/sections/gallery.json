@@ -6,7 +6,11 @@
 	},
 	"options": {},
 	"attributes": {
-		"heading": {
+		"title": {
+			"type": "string",
+			"required": true
+		},
+		"subTitle": {
 			"type": "string"
 		},
 		"layout": {
@@ -15,11 +19,11 @@
 			"default": "carousel",
 			"enum": ["grid", "masonry", "carousel"]
 		},
-		"images": {
-			"type": "component",
-			"component": "sections.picture",
-			"repeatable": true,
-			"required": true
+		"items": {
+			"type": "media",
+			"multiple": true,
+			"required": true,
+			"allowedTypes": ["images", "files"]
 		}
 	},
 	"config": {}

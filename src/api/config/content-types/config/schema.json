@@ -11,12 +11,12 @@
 	},
 	"pluginOptions": {},
 	"attributes": {
-		"siteTitle": {
+		"title": {
 			"type": "string",
 			"required": true,
 			"unique": false
 		},
-		"footerText": {
+		"description": {
 			"type": "text",
 			"required": true
 		},
@@ -24,6 +24,10 @@
 			"type": "component",
 			"component": "sections.link",
 			"repeatable": true,
+			"required": true
+		},
+		"footer": {
+			"type": "blocks",
 			"required": true
 		}
 	}

@@ -17,6 +17,9 @@
 			"maxLength": 255,
 			"required": true
 		},
+		"subTitle": {
+			"type": "string"
+		},
 		"summary": {
 			"type": "blocks",
 			"required": true
@@ -51,12 +54,11 @@
 			"type": "dynamiczone",
 			"components": [
 				"sections.reference-list",
-				"sections.picture",
 				"sections.paragraph",
-				"sections.internal-video",
 				"sections.gallery",
 				"sections.embedded-video",
-				"sections.call-to-action"
+				"sections.call-to-action",
+				"sections.media"
 			],
 			"required": true
 		},

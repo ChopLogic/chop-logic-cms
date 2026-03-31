@@ -15,6 +15,9 @@
 			"type": "string",
 			"required": true
 		},
+		"subTitle": {
+			"type": "text"
+		},
 		"slug": {
 			"type": "uid",
 			"targetField": "title",
@@ -38,12 +41,11 @@
 		"content": {
 			"type": "dynamiczone",
 			"components": [
-				"sections.picture",
 				"sections.paragraph",
-				"sections.internal-video",
 				"sections.gallery",
 				"sections.embedded-video",
-				"sections.call-to-action"
+				"sections.call-to-action",
+				"sections.media"
 			],
 			"required": true
 		},

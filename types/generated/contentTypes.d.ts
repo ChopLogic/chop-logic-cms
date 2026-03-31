@@ -445,19 +445,15 @@ export interface ApiAboutMeAboutMe extends Struct.SingleTypeSchema {
       [
         'sections.paragraph',
         'sections.gallery',
-        'sections.internal-video',
         'sections.call-to-action',
         'sections.embedded-video',
-        'sections.picture',
+        'sections.media',
       ]
     > &
       Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    heroImage: Schema.Attribute.Component<'sections.picture', false> &
-      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -468,8 +464,7 @@ export interface ApiAboutMeAboutMe extends Struct.SingleTypeSchema {
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
-    socialLinks: Schema.Attribute.Component<'sections.link', true>;
-    subHeading: Schema.Attribute.String;
+    subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -492,12 +487,11 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     content: Schema.Attribute.DynamicZone<
       [
         'sections.reference-list',
-        'sections.picture',
         'sections.paragraph',
-        'sections.internal-video',
         'sections.gallery',
         'sections.embedded-video',
         'sections.call-to-action',
+        'sections.media',
       ]
     > &
       Schema.Attribute.Required;
@@ -517,6 +511,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     publicationDate: Schema.Attribute.Date & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    subTitle: Schema.Attribute.String;
     summary: Schema.Attribute.Blocks & Schema.Attribute.Required;
     tags: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'>;
     title: Schema.Attribute.String &
@@ -543,7 +538,6 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
   attributes: {
     articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
-    avatar: Schema.Attribute.Component<'sections.picture', false>;
     bio: Schema.Attribute.Blocks;
     books: Schema.Attribute.Relation<'manyToMany', 'api::book.book'>;
     createdAt: Schema.Attribute.DateTime;
@@ -579,13 +573,12 @@ export interface ApiBlogBlog extends Struct.SingleTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      ['sections.picture', 'sections.paragraph', 'sections.call-to-action']
+      ['sections.paragraph', 'sections.call-to-action']
     > &
       Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
       Schema.Attribute.Private;
@@ -593,7 +586,7 @@ export interface ApiBlogBlog extends Struct.SingleTypeSchema {
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
-    subHeading: Schema.Attribute.String;
+    subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -616,8 +609,6 @@ export interface ApiBookBook extends Struct.CollectionTypeSchema {
     authors: Schema.Attribute.Relation<'manyToMany', 'api::author.author'>;
     chapters: Schema.Attribute.Relation<'oneToMany', 'api::chapter.chapter'>;
     copyright: Schema.Attribute.Blocks & Schema.Attribute.Required;
-    cover: Schema.Attribute.Component<'sections.picture', false> &
-      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -649,12 +640,11 @@ export interface ApiChapterChapter extends Struct.CollectionTypeSchema {
     book: Schema.Attribute.Relation<'manyToOne', 'api::book.book'>;
     content: Schema.Attribute.DynamicZone<
       [
-        'sections.picture',
         'sections.paragraph',
-        'sections.internal-video',
         'sections.gallery',
         'sections.embedded-video',
         'sections.call-to-action',
+        'sections.media',
       ]
     > &
       Schema.Attribute.Required;
@@ -676,6 +666,7 @@ export interface ApiChapterChapter extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     references: Schema.Attribute.Component<'sections.reference-list', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    subTitle: Schema.Attribute.Text;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -697,7 +688,8 @@ export interface ApiConfigConfig extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    footerText: Schema.Attribute.Text & Schema.Attribute.Required;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    footer: Schema.Attribute.Blocks & Schema.Attribute.Required;
     links: Schema.Attribute.Component<'sections.link', true> &
       Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -707,7 +699,7 @@ export interface ApiConfigConfig extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    siteTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -727,19 +719,17 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'sections.picture',
         'sections.paragraph',
-        'sections.internal-video',
         'sections.gallery',
         'sections.embedded-video',
         'sections.call-to-action',
+        'sections.media',
       ]
     > &
       Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
@@ -747,7 +737,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
-    subHeading: Schema.Attribute.String;
+    subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -770,7 +760,6 @@ export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -781,6 +770,7 @@ export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

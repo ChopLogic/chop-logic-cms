@@ -37,12 +37,6 @@
 			"type": "blocks",
 			"required": true
 		},
-		"cover": {
-			"type": "component",
-			"component": "sections.picture",
-			"repeatable": false,
-			"required": true
-		},
 		"chapters": {
 			"type": "relation",
 			"relation": "oneToMany",

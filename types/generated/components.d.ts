@@ -7,11 +7,11 @@ export interface SectionsCallToAction extends Struct.ComponentSchema {
     icon: 'arrowRight';
   };
   attributes: {
-    heading: Schema.Attribute.String;
-    image: Schema.Attribute.Component<'sections.picture', false>;
     link: Schema.Attribute.Component<'sections.link', false> &
       Schema.Attribute.Required;
-    subheading: Schema.Attribute.String;
+    picture: Schema.Attribute.Media<'images' | 'files'>;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -22,13 +22,9 @@ export interface SectionsEmbeddedVideo extends Struct.ComponentSchema {
     icon: 'play';
   };
   attributes: {
-    heading: Schema.Attribute.String;
     link: Schema.Attribute.Component<'sections.link', false> &
       Schema.Attribute.Required;
-    platform: Schema.Attribute.Enumeration<
-      ['YouTube', 'Instagram', 'Pinterest', 'Vimeo', 'Twitch']
-    > &
-      Schema.Attribute.Required;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -39,25 +35,13 @@ export interface SectionsGallery extends Struct.ComponentSchema {
     icon: 'landscape';
   };
   attributes: {
-    heading: Schema.Attribute.String;
-    images: Schema.Attribute.Component<'sections.picture', true> &
+    items: Schema.Attribute.Media<'images' | 'files', true> &
       Schema.Attribute.Required;
     layout: Schema.Attribute.Enumeration<['grid', 'masonry', 'carousel']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'carousel'>;
-  };
-}
-
-export interface SectionsInternalVideo extends Struct.ComponentSchema {
-  collectionName: 'components_sections_internal_videos';
-  info: {
-    displayName: 'Internal Video';
-    icon: 'television';
-  };
-  attributes: {
-    file: Schema.Attribute.Media<'files' | 'videos'> &
-      Schema.Attribute.Required;
-    heading: Schema.Attribute.String;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -68,7 +52,6 @@ export interface SectionsLink extends Struct.ComponentSchema {
     icon: 'link';
   };
   attributes: {
-    icon: Schema.Attribute.Media<'images' | 'files'>;
     platform: Schema.Attribute.Enumeration<
       [
         'LinkedIn',
@@ -111,32 +94,37 @@ export interface SectionsLink extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsMedia extends Struct.ComponentSchema {
+  collectionName: 'components_sections_media';
+  info: {
+    displayName: 'Media';
+    icon: 'picture';
+  };
+  attributes: {
+    item: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.Required;
+    publicationDate: Schema.Attribute.Date;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionsParagraph extends Struct.ComponentSchema {
   collectionName: 'components_sections_paragraphs';
   info: {
     displayName: 'Paragraph';
-    icon: 'bulletList';
+    icon: 'layer';
   };
   attributes: {
     alignment: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'left'>;
-    heading: Schema.Attribute.String;
-    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
-  };
-}
-
-export interface SectionsPicture extends Struct.ComponentSchema {
-  collectionName: 'components_sections_pictures';
-  info: {
-    displayName: 'Picture';
-    icon: 'picture';
-  };
-  attributes: {
-    altText: Schema.Attribute.String & Schema.Attribute.Required;
-    caption: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+    content: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -147,7 +135,6 @@ export interface SectionsReferenceList extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
-    heading: Schema.Attribute.String;
     links: Schema.Attribute.Component<'sections.link', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
@@ -156,6 +143,8 @@ export interface SectionsReferenceList extends Struct.ComponentSchema {
         },
         number
       >;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -213,10 +202,9 @@ declare module '@strapi/strapi' {
       'sections.call-to-action': SectionsCallToAction;
       'sections.embedded-video': SectionsEmbeddedVideo;
       'sections.gallery': SectionsGallery;
-      'sections.internal-video': SectionsInternalVideo;
       'sections.link': SectionsLink;
+      'sections.media': SectionsMedia;
       'sections.paragraph': SectionsParagraph;
-      'sections.picture': SectionsPicture;
       'sections.reference-list': SectionsReferenceList;
       'shared.open-graph': SharedOpenGraph;
       'shared.seo': SharedSeo;

@@ -2,14 +2,18 @@
 	"collectionName": "components_sections_paragraphs",
 	"info": {
 		"displayName": "Paragraph",
-		"icon": "bulletList"
+		"icon": "layer"
 	},
 	"options": {},
 	"attributes": {
-		"heading": {
+		"title": {
+			"type": "string",
+			"required": true
+		},
+		"subTitle": {
 			"type": "string"
 		},
-		"text": {
+		"content": {
 			"type": "blocks",
 			"required": true
 		},

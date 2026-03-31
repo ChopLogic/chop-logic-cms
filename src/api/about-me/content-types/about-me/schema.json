@@ -15,22 +15,12 @@
 			"type": "string",
 			"required": true
 		},
+		"subTitle": {
+			"type": "string"
+		},
 		"slug": {
 			"type": "uid",
 			"targetField": "title",
-			"required": true
-		},
-		"heading": {
-			"type": "string",
-			"required": true
-		},
-		"subHeading": {
-			"type": "string"
-		},
-		"heroImage": {
-			"type": "component",
-			"component": "sections.picture",
-			"repeatable": false,
 			"required": true
 		},
 		"content": {
@@ -38,17 +28,11 @@
 			"components": [
 				"sections.paragraph",
 				"sections.gallery",
-				"sections.internal-video",
 				"sections.call-to-action",
 				"sections.embedded-video",
-				"sections.picture"
+				"sections.media"
 			],
 			"required": true
-		},
-		"socialLinks": {
-			"type": "component",
-			"component": "sections.link",
-			"repeatable": true
 		},
 		"metaData": {
 			"type": "component",

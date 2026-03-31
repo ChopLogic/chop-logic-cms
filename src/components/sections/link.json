@@ -38,11 +38,6 @@
 				"GitHub"
 			]
 		},
-		"icon": {
-			"type": "media",
-			"multiple": false,
-			"allowedTypes": ["images", "files"]
-		},
 		"target": {
 			"type": "enumeration",
 			"default": "_blank",

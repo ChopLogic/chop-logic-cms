@@ -15,13 +15,13 @@
 			"type": "string",
 			"required": true
 		},
+		"subTitle": {
+			"type": "string",
+			"required": false
+		},
 		"slug": {
 			"type": "uid",
 			"targetField": "title",
-			"required": true
-		},
-		"heading": {
-			"type": "string",
 			"required": true
 		},
 		"content": {

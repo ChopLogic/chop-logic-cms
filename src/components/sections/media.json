@@ -1,0 +1,27 @@
+{
+	"collectionName": "components_sections_media",
+	"info": {
+		"displayName": "Media",
+		"icon": "picture"
+	},
+	"options": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"required": true
+		},
+		"subTitle": {
+			"type": "string"
+		},
+		"item": {
+			"type": "media",
+			"multiple": true,
+			"required": true,
+			"allowedTypes": ["images", "files", "videos", "audios"]
+		},
+		"publicationDate": {
+			"type": "date"
+		}
+	},
+	"config": {}
+}

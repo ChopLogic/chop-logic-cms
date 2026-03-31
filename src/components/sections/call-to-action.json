@@ -6,23 +6,23 @@
 	},
 	"options": {},
 	"attributes": {
-		"heading": {
+		"title": {
 			"type": "string",
-			"required": false
+			"required": true
 		},
-		"subheading": {
+		"subTitle": {
 			"type": "string"
+		},
+		"picture": {
+			"type": "media",
+			"multiple": false,
+			"allowedTypes": ["images", "files"]
 		},
 		"link": {
 			"type": "component",
 			"component": "sections.link",
 			"repeatable": false,
 			"required": true
-		},
-		"image": {
-			"type": "component",
-			"component": "sections.picture",
-			"repeatable": false
 		}
 	},
 	"config": {}

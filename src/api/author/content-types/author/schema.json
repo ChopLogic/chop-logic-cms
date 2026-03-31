@@ -24,11 +24,6 @@
 			"type": "email",
 			"required": true
 		},
-		"avatar": {
-			"type": "component",
-			"component": "sections.picture",
-			"repeatable": false
-		},
 		"role": {
 			"type": "string"
 		},

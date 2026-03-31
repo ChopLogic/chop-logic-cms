@@ -15,27 +15,22 @@
 			"type": "string",
 			"required": true
 		},
+		"subTitle": {
+			"type": "string"
+		},
 		"slug": {
 			"type": "uid",
 			"targetField": "title",
 			"required": true
 		},
-		"heading": {
-			"type": "string",
-			"required": true
-		},
-		"subHeading": {
-			"type": "string"
-		},
 		"content": {
 			"type": "dynamiczone",
 			"components": [
-				"sections.picture",
 				"sections.paragraph",
-				"sections.internal-video",
 				"sections.gallery",
 				"sections.embedded-video",
-				"sections.call-to-action"
+				"sections.call-to-action",
+				"sections.media"
 			],
 			"required": true
 		},
