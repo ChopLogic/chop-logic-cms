@@ -6,7 +6,11 @@
 	},
 	"options": {},
 	"attributes": {
-		"title": {
+		"heading": {
+			"type": "string",
+			"required": true
+		},
+		"subHeading": {
 			"type": "string"
 		},
 		"link": {

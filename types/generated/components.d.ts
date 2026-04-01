@@ -7,11 +7,11 @@ export interface SectionsCallToAction extends Struct.ComponentSchema {
     icon: 'arrowRight';
   };
   attributes: {
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
     link: Schema.Attribute.Component<'sections.link', false> &
       Schema.Attribute.Required;
     picture: Schema.Attribute.Media<'images' | 'files'>;
-    subTitle: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    subHeading: Schema.Attribute.String;
   };
 }
 
@@ -22,9 +22,10 @@ export interface SectionsEmbeddedVideo extends Struct.ComponentSchema {
     icon: 'play';
   };
   attributes: {
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
     link: Schema.Attribute.Component<'sections.link', false> &
       Schema.Attribute.Required;
-    title: Schema.Attribute.String;
+    subHeading: Schema.Attribute.String;
   };
 }
 
@@ -35,13 +36,13 @@ export interface SectionsGallery extends Struct.ComponentSchema {
     icon: 'landscape';
   };
   attributes: {
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
     items: Schema.Attribute.Media<'images' | 'files', true> &
       Schema.Attribute.Required;
     layout: Schema.Attribute.Enumeration<['grid', 'masonry', 'carousel']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'carousel'>;
-    subTitle: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    subHeading: Schema.Attribute.String;
   };
 }
 
@@ -101,11 +102,11 @@ export interface SectionsMedia extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
     item: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     publicationDate: Schema.Attribute.Date;
-    subTitle: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    subHeading: Schema.Attribute.String;
   };
 }
 
@@ -120,8 +121,8 @@ export interface SectionsParagraph extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'left'>;
     content: Schema.Attribute.Blocks & Schema.Attribute.Required;
-    subTitle: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    subHeading: Schema.Attribute.String;
   };
 }
 
@@ -132,6 +133,7 @@ export interface SectionsReferenceList extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
     links: Schema.Attribute.Component<'sections.link', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
@@ -140,8 +142,7 @@ export interface SectionsReferenceList extends Struct.ComponentSchema {
         },
         number
       >;
-    subTitle: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    subHeading: Schema.Attribute.String;
   };
 }
 
