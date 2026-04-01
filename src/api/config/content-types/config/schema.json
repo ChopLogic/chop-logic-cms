@@ -4,7 +4,7 @@
 	"info": {
 		"singularName": "config",
 		"pluralName": "configs",
-		"displayName": "SiteConfig"
+		"displayName": "Config"
 	},
 	"options": {
 		"draftAndPublish": true
@@ -29,6 +29,11 @@
 		"footer": {
 			"type": "blocks",
 			"required": true
+		},
+		"logo": {
+			"type": "media",
+			"multiple": false,
+			"allowedTypes": ["images", "files"]
 		}
 	}
 }

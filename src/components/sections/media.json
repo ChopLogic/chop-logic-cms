@@ -1,7 +1,7 @@
 {
 	"collectionName": "components_sections_media",
 	"info": {
-		"displayName": "Media",
+		"displayName": "Picture",
 		"icon": "picture"
 	},
 	"options": {},
@@ -15,9 +15,9 @@
 		},
 		"item": {
 			"type": "media",
-			"multiple": true,
+			"multiple": false,
 			"required": true,
-			"allowedTypes": ["images", "files", "videos", "audios"]
+			"allowedTypes": ["images", "files"]
 		},
 		"publicationDate": {
 			"type": "date"

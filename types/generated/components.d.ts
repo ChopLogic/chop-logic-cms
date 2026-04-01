@@ -97,14 +97,11 @@ export interface SectionsLink extends Struct.ComponentSchema {
 export interface SectionsMedia extends Struct.ComponentSchema {
   collectionName: 'components_sections_media';
   info: {
-    displayName: 'Media';
+    displayName: 'Picture';
     icon: 'picture';
   };
   attributes: {
-    item: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
+    item: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     publicationDate: Schema.Attribute.Date;
     subTitle: Schema.Attribute.String;

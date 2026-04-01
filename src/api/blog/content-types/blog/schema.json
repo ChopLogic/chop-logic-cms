@@ -25,7 +25,11 @@
 		},
 		"content": {
 			"type": "dynamiczone",
-			"components": ["sections.paragraph", "sections.call-to-action"],
+			"components": [
+				"sections.paragraph",
+				"sections.call-to-action",
+				"sections.media"
+			],
 			"required": true
 		},
 		"metaData": {

@@ -573,7 +573,7 @@ export interface ApiBlogBlog extends Struct.SingleTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      ['sections.paragraph', 'sections.call-to-action']
+      ['sections.paragraph', 'sections.call-to-action', 'sections.media']
     > &
       Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
@@ -677,7 +677,7 @@ export interface ApiChapterChapter extends Struct.CollectionTypeSchema {
 export interface ApiConfigConfig extends Struct.SingleTypeSchema {
   collectionName: 'configs';
   info: {
-    displayName: 'SiteConfig';
+    displayName: 'Config';
     pluralName: 'configs';
     singularName: 'config';
   };
@@ -698,6 +698,7 @@ export interface ApiConfigConfig extends Struct.SingleTypeSchema {
       'api::config.config'
     > &
       Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files'>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
