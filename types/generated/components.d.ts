@@ -187,9 +187,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
         maxLength: 70;
       }>;
     openGraph: Schema.Attribute.Component<'shared.open-graph', false>;
-    robots: Schema.Attribute.Enumeration<
-      ['index', 'follow', 'noindex', 'nofollow']
-    >;
+    robots: Schema.Attribute.String;
     structuredData: Schema.Attribute.JSON;
   };
 }

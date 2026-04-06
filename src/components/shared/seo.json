@@ -26,8 +26,7 @@
 			"type": "string"
 		},
 		"robots": {
-			"type": "enumeration",
-			"enum": ["index", "follow", "noindex", "nofollow"]
+			"type": "string"
 		},
 		"structuredData": {
 			"type": "json"
