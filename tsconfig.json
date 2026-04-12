@@ -1,8 +1,8 @@
 {
 	"compilerOptions": {
-		"module": "CommonJS",
-		"moduleResolution": "Node",
+		"module": "nodenext",
 		"lib": ["ES2020"],
+		"moduleResolution": "nodenext",
 		"target": "ES2019",
 		"strict": true,
 		"skipLibCheck": true,
@@ -13,7 +13,9 @@
 		"noEmitOnError": true,
 		"noImplicitThis": true,
 		"outDir": "dist",
-		"rootDir": "."
+		"rootDir": ".",
+		"types": ["jest", "node"],
+		"isolatedModules": true
 	},
 	"include": [
 		// Include root files

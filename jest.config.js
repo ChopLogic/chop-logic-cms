@@ -16,9 +16,12 @@ module.exports = {
 			"ts-jest",
 			{
 				tsconfig: {
-					jsx: "react",
+					strict: true,
 					esModuleInterop: true,
 					allowSyntheticDefaultImports: true,
+					jsx: "react",
+					outDir: "dist",
+					isolatedModules: true,
 				},
 			},
 		],
