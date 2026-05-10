@@ -30,6 +30,11 @@
 		"bio": {
 			"type": "blocks"
 		},
+		"avatar": {
+			"type": "media",
+			"multiple": false,
+			"allowedTypes": ["images", "files"]
+		},
 		"socialLinks": {
 			"type": "component",
 			"component": "sections.link",
