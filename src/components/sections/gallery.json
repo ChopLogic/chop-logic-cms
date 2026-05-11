@@ -15,7 +15,7 @@
 		},
 		"layout": {
 			"type": "enumeration",
-			"required": true,
+			"required": false,
 			"default": "carousel",
 			"enum": ["grid", "masonry", "carousel"]
 		},

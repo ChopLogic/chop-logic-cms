@@ -40,7 +40,6 @@ export interface SectionsGallery extends Struct.ComponentSchema {
     items: Schema.Attribute.Media<'images' | 'files', true> &
       Schema.Attribute.Required;
     layout: Schema.Attribute.Enumeration<['grid', 'masonry', 'carousel']> &
-      Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'carousel'>;
     subHeading: Schema.Attribute.String;
   };
