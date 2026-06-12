@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.4.15/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.5.0/schema.json",
 	"files": {
 		"includes": [
 			"**",
@@ -8,18 +8,12 @@
 			"!**/.strapi",
 			"!**/coverage",
 			"!**/node_modules",
-			"!**/types/generated"
+			"!**/types/generated",
+			"!**/public/uploads"
 		]
 	},
 	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true
-		},
-		"domains": {
-			"project": "recommended",
-			"test": "recommended"
-		}
+		"enabled": true
 	},
 	"formatter": {
 		"enabled": true
