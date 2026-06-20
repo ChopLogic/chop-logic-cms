@@ -18,6 +18,10 @@
 			"component": "sections.link",
 			"repeatable": false,
 			"required": true
+		},
+		"aspectRatio": {
+			"type": "string",
+			"maxLength": 8
 		}
 	},
 	"config": {}

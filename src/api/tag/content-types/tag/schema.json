@@ -25,6 +25,10 @@
 		"description": {
 			"type": "string",
 			"maxLength": 200
+		},
+		"color": {
+			"type": "string",
+			"maxLength": 10
 		}
 	}
 }

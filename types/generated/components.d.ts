@@ -22,6 +22,10 @@ export interface SectionsEmbeddedVideo extends Struct.ComponentSchema {
     icon: 'play';
   };
   attributes: {
+    aspectRatio: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 8;
+      }>;
     heading: Schema.Attribute.String & Schema.Attribute.Required;
     link: Schema.Attribute.Component<'sections.link', false> &
       Schema.Attribute.Required;
@@ -36,6 +40,10 @@ export interface SectionsGallery extends Struct.ComponentSchema {
     icon: 'landscape';
   };
   attributes: {
+    aspectRatio: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 8;
+      }>;
     heading: Schema.Attribute.String & Schema.Attribute.Required;
     items: Schema.Attribute.Media<'images' | 'files', true> &
       Schema.Attribute.Required;
@@ -101,6 +109,10 @@ export interface SectionsMedia extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
+    aspectRatio: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 8;
+      }>;
     heading: Schema.Attribute.String & Schema.Attribute.Required;
     item: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;

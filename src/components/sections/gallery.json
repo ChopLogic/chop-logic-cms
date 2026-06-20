@@ -24,6 +24,10 @@
 			"multiple": true,
 			"required": true,
 			"allowedTypes": ["images", "files"]
+		},
+		"aspectRatio": {
+			"type": "string",
+			"maxLength": 8
 		}
 	},
 	"config": {}

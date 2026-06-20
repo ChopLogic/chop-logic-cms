@@ -21,6 +21,10 @@
 		},
 		"publicationDate": {
 			"type": "date"
+		},
+		"aspectRatio": {
+			"type": "string",
+			"maxLength": 8
 		}
 	},
 	"config": {}
