@@ -67,6 +67,10 @@
 			"component": "shared.seo",
 			"repeatable": false,
 			"required": true
+		},
+		"excerpt": {
+			"type": "text",
+			"required": true
 		}
 	}
 }
