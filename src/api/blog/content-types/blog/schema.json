@@ -28,7 +28,11 @@
 			"components": [
 				"sections.paragraph",
 				"sections.call-to-action",
-				"sections.media"
+				"sections.media",
+				"sections.reference-list",
+				"sections.link",
+				"sections.gallery",
+				"sections.embedded-video"
 			],
 			"required": true
 		},

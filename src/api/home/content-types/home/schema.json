@@ -30,7 +30,9 @@
 				"sections.gallery",
 				"sections.embedded-video",
 				"sections.call-to-action",
-				"sections.media"
+				"sections.media",
+				"sections.reference-list",
+				"sections.link"
 			],
 			"required": true
 		},

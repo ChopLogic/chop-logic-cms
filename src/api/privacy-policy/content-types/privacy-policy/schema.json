@@ -19,13 +19,22 @@
 			"type": "string",
 			"required": false
 		},
+		"content": {
+			"type": "dynamiczone",
+			"components": [
+				"sections.paragraph",
+				"sections.media",
+				"sections.link",
+				"sections.gallery",
+				"sections.call-to-action",
+				"sections.reference-list",
+				"sections.embedded-video"
+			],
+			"required": true
+		},
 		"slug": {
 			"type": "uid",
 			"targetField": "title",
-			"required": true
-		},
-		"content": {
-			"type": "blocks",
 			"required": true
 		},
 		"metaData": {

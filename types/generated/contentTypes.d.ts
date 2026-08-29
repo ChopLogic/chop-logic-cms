@@ -461,6 +461,8 @@ export interface ApiAboutMeAboutMe extends Struct.SingleTypeSchema {
         'sections.call-to-action',
         'sections.embedded-video',
         'sections.media',
+        'sections.reference-list',
+        'sections.link',
       ]
     > &
       Schema.Attribute.Required;
@@ -589,7 +591,15 @@ export interface ApiBlogBlog extends Struct.SingleTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      ['sections.paragraph', 'sections.call-to-action', 'sections.media']
+      [
+        'sections.paragraph',
+        'sections.call-to-action',
+        'sections.media',
+        'sections.reference-list',
+        'sections.link',
+        'sections.gallery',
+        'sections.embedded-video',
+      ]
     > &
       Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
@@ -741,6 +751,8 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'sections.embedded-video',
         'sections.call-to-action',
         'sections.media',
+        'sections.reference-list',
+        'sections.link',
       ]
     > &
       Schema.Attribute.Required;
@@ -773,7 +785,18 @@ export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    content: Schema.Attribute.DynamicZone<
+      [
+        'sections.paragraph',
+        'sections.media',
+        'sections.link',
+        'sections.gallery',
+        'sections.call-to-action',
+        'sections.reference-list',
+        'sections.embedded-video',
+      ]
+    > &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
